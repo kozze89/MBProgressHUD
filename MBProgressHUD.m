@@ -482,10 +482,19 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 		[indicator removeFromSuperview];
 		self.indicator = customView;
 		[self addSubview:indicator];
-	} else if (mode == MBProgressHUDModeText) {
-		[indicator removeFromSuperview];
-		self.indicator = nil;
-	}
+    }
+    else if (mode == MBProgressHUDModeText) {
+        [indicator removeFromSuperview];
+        self.indicator = nil;
+    }
+    else if (mode == MBProgressHUDModeFontAwesome) {
+        [indicator removeFromSuperview];
+        UILabel *awesomeLabel = MB_AUTORELEASE([[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)]);
+        awesomeLabel.font = [UIFont fontWithName:@"FontAwesome" size:self.fontSize];
+        awesomeLabel.text = self.iconText;
+        self.indicator = awesomeLabel;
+        [self addSubview:indicator];
+    }
 }
 
 #pragma mark - Layout

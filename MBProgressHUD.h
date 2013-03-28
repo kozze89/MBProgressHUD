@@ -43,7 +43,9 @@ typedef enum {
 	/** Shows a custom view */
 	MBProgressHUDModeCustomView,
 	/** Shows only labels */
-	MBProgressHUDModeText
+	MBProgressHUDModeText,
+    /** Custom view based on font awesome */
+    MBProgressHUDModeFontAwesome
 } MBProgressHUDMode;
 
 typedef enum {
@@ -301,7 +303,17 @@ typedef void (^MBProgressHUDCompletionBlock)();
  */
 @property (MB_WEAK) id<MBProgressHUDDelegate> delegate;
 
-/** 
+/**
+ * Sets the icon to be displayed. Only used with MBProgressHUDModeFontAwesome,
+ */
+@property (copy) NSString *iconText;
+
+/**
+ * Sets the icon to be displayed. Only used with MBProgressHUDModeFontAwesome,
+ */
+@property (assign) NSUInteger fontSize;
+
+/**
  * An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit
  * the entire text. If the text is too long it will get clipped by displaying "..." at the end. If left unchanged or
  * set to @"", then no message is displayed.
