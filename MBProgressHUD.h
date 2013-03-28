@@ -304,14 +304,19 @@ typedef void (^MBProgressHUDCompletionBlock)();
 @property (MB_WEAK) id<MBProgressHUDDelegate> delegate;
 
 /**
- * Sets the icon to be displayed. Only used with MBProgressHUDModeFontAwesome,
+ * Sets the icon to be displayed. Only used with MBProgressHUDModeFontAwesome
  */
-@property (copy) NSString *iconText;
+@property (copy) NSString *awesomeIcon;
 
 /**
- * Sets the icon to be displayed. Only used with MBProgressHUDModeFontAwesome,
+ * Sets the size of the awesome font icon. Only used with MBProgressHUDModeFontAwesome
  */
-@property (assign) NSUInteger fontSize;
+@property (assign) NSUInteger awesomeFontSize;
+
+/**
+ * Sets the color of the awesome icon. Only used with MBProgressHUDModeFontAwesome
+ */
+@property (assign) UIColor *awesomeFontColor;
 
 /**
  * An optional short message to be displayed below the activity indicator. The HUD is automatically resized to fit

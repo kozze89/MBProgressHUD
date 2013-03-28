@@ -489,9 +489,12 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
     }
     else if (mode == MBProgressHUDModeFontAwesome) {
         [indicator removeFromSuperview];
-        UILabel *awesomeLabel = MB_AUTORELEASE([[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)]);
-        awesomeLabel.font = [UIFont fontWithName:@"FontAwesome" size:self.fontSize];
-        awesomeLabel.text = self.iconText;
+        UILabel *awesomeLabel = MB_AUTORELEASE([[UILabel alloc] init]);
+        awesomeLabel.backgroundColor = [UIColor clearColor];
+        awesomeLabel.font = [UIFont fontWithName:@"FontAwesome" size:self.awesomeFontSize];
+        awesomeLabel.text = self.awesomeIcon;
+        awesomeLabel.textColor = (self.awesomeFontColor != nil ? self.awesomeFontColor : [UIColor whiteColor]);
+        [awesomeLabel sizeToFit];
         self.indicator = awesomeLabel;
         [self addSubview:indicator];
     }
